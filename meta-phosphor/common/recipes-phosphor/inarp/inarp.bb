@@ -3,15 +3,15 @@ DESCRIPTION = "Daemon to respond to Inverse-ARP requests"
 HOMEPAGE = "http://github.com/openbmc/inarp"
 PR = "r1"
 
-inherit autotools
 inherit obmc-phosphor-license
+inherit obmc-phosphor-c-daemon
 
-DEPENDS += "autoconf-archive-native"
+TARGET_CFLAGS   += "-fpic -O2"
+
 RDEPENDS_${PN} += "network"
-
 SRC_URI += "git://github.com/openbmc/inarp"
-SRCREV = "2af0b2d9787e4fbb41f3714c182e8ea5f433e8bb"
+
+SRCREV = "04d1f97f2e6e471d63c7d56dce7bd8472eb8fbfb"
 
 S = "${WORKDIR}/git"
-
-exec_prefix="/usr/local"
+INSTALL_NAME = "inarp"

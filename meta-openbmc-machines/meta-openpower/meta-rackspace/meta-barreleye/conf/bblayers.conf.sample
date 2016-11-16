@@ -7,11 +7,7 @@ BBFILES ?= ""
 
 BBLAYERS ?= " \
   ##OEROOT##/meta \
-  ##OEROOT##/meta-poky \
-  ##OEROOT##/import-layers/meta-openembedded/meta-oe \
-  ##OEROOT##/import-layers/meta-openembedded/meta-networking \
-  ##OEROOT##/import-layers/meta-openembedded/meta-python \
-  ##OEROOT##/import-layers/meta-virtualization \
+  ##OEROOT##/meta-yocto \
   ##OEROOT##/meta-phosphor \
   ##OEROOT##/meta-openbmc-bsp/meta-aspeed \
   ##OEROOT##/meta-openbmc-bsp/meta-aspeed/meta-ast2400 \
@@ -21,15 +17,11 @@ BBLAYERS ?= " \
   "
 BBLAYERS_NON_REMOVABLE ?= " \
   ##OEROOT##/meta \
-  ##OEROOT##/meta-poky \
-  ##OEROOT##/import-layers/meta-openembedded/meta-oe \
-  ##OEROOT##/import-layers/meta-openembedded/meta-networking \
-  ##OEROOT##/import-layers/meta-openembedded/meta-python \
-  ##OEROOT##/import-layers/meta-virtualization \
+  ##OEROOT##/meta-yocto \
   ##OEROOT##/meta-phosphor \
-  ##OEROOT##/meta-openbmc-bsp/meta-aspeed \
-  ##OEROOT##/meta-openbmc-bsp/meta-aspeed/meta-ast2400 \
-  ##OEROOT##/meta-openbmc-machines/meta-openpower \
-  ##OEROOT##/meta-openbmc-machines/meta-openpower/meta-rackspace \
-  ##OEROOT##/meta-openbmc-machines/meta-openpower/meta-rackspace/meta-barreleye \
+  ##OEROOT##/meta-aspeed \
+  ##OEROOT##/meta-aspeed/meta-ast2400 \
+  ##OEROOT##/meta-openpower \
+  ##OEROOT##/meta-openpower/meta-rackspace \
+  ##OEROOT##/meta-openpower/meta-rackspace/meta-barreleye \
   "

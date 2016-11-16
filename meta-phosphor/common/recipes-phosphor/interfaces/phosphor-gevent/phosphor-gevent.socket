@@ -1,9 +1,0 @@
-[Unit]
-Description=Phosphor Webserver socket
-PartOf=systemd-networkd.service
-
-[Socket]
-ListenStream=443
-
-[Install]
-WantedBy=sockets.target

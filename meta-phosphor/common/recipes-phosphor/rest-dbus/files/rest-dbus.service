@@ -1,7 +1,6 @@
 [Unit]
-Description=Phosphor DBUS Browser
+Description=DBUS introspecting REST server.
 
 [Service]
 Restart=always
-ExecStart={sbindir}/rest-dbus
-Environment="PYTHONUNBUFFERED=1"
+ExecStart=/usr/sbin/rest-dbus

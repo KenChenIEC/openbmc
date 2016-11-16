@@ -7,11 +7,7 @@ BBFILES ?= ""
 
 BBLAYERS ?= " \
   ##OEROOT##/meta \
-  ##OEROOT##/meta-poky \
-  ##OEROOT##/import-layers/meta-openembedded/meta-oe \
-  ##OEROOT##/import-layers/meta-openembedded/meta-networking \
-  ##OEROOT##/import-layers/meta-openembedded/meta-python \
-  ##OEROOT##/import-layers/meta-virtualization \
+  ##OEROOT##/meta-yocto \
   ##OEROOT##/meta-phosphor \
   ##OEROOT##/meta-openbmc-bsp/meta-aspeed \
   ##OEROOT##/meta-openbmc-bsp/meta-aspeed/meta-ast2500 \
@@ -21,11 +17,7 @@ BBLAYERS ?= " \
   "
 BBLAYERS_NON_REMOVABLE ?= " \
   ##OEROOT##/meta \
-  ##OEROOT##/meta-poky \
-  ##OEROOT##/import-layers/meta-openembedded/meta-oe \
-  ##OEROOT##/import-layers/meta-openembedded/meta-networking \
-  ##OEROOT##/import-layers/meta-openembedded/meta-python \
-  ##OEROOT##/import-layers/meta-virtualization \
+  ##OEROOT##/meta-yocto \
   ##OEROOT##/meta-phosphor \
   ##OEROOT##/meta-openbmc-bsp/meta-aspeed \
   ##OEROOT##/meta-openbmc-bsp/meta-aspeed/meta-ast2500 \

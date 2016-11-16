@@ -1,9 +1,0 @@
-[Unit]
-Description=Phosphor System Manager
-
-[Service]
-Restart=always
-ExecStart={sbindir}/obmc-phosphor-sysd
-
-[Install]
-WantedBy={SYSTEMD_DEFAULT_TARGET}

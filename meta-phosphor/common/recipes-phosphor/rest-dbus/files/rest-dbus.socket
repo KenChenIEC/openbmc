@@ -1,5 +1,5 @@
 [Unit]
-Description=Phosphor DBUS Browser socket
+Description=DBUS introspecting REST server socket.
 
 [Socket]
 ListenStream=3000

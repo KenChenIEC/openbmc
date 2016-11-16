@@ -13,17 +13,13 @@ inherit allarch
 inherit setuptools
 
 S = "${WORKDIR}/${SRCNAME}-${PV}"
-RDEPENDS_${PN} += " \
-        python-email-utils \
-        python-json \
-        python-netserver \
-        "
+RDEPENDS_${PN} += "python-email-utils"
 
 PROVIDES += "${PN}-app"
-PACKAGE_BEFORE_PN += "${PN}-app"
+PACKAGES += "${PN}-app"
 
 SUMMARY_${PN}-app = "${SRCNAME} app"
 RDEPENDS_${PN}-app = "${PN}"
-FILES_${PN}-app = "${bindir}/bottle.py*"
+FILES_${PN}-app = "${bindir}/bottle.py"
 
 BBCLASSEXTEND = "nativesdk"

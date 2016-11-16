@@ -1,7 +1,0 @@
-[Unit]
-Description=Power%i Off (Pre)
-Wants={SYSTEMD_DEFAULT_TARGET}
-After={SYSTEMD_DEFAULT_TARGET}
-Conflicts=obmc-chassis-start@%i.target
-RefuseManualStart=yes
-RefuseManualStop=yes

@@ -1,0 +1,11 @@
+[Unit]
+Description=Phosphor OpenBMC DBus REST daemon
+Requires=obmc-mapper.service
+After=obmc-mapper.service
+
+[Service]
+Restart=always
+ExecStart=/usr/sbin/obmc-rest
+
+[Install]
+WantedBy=multi-user.target
