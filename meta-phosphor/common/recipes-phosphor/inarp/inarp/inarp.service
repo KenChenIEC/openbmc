@@ -1,8 +1,9 @@
 [Unit]
-Description=Phosphor Inverse ARP daemon
+Description=Phosphor Inverse ARP
 
 [Service]
-ExecStart=/usr/sbin/inarp
+ExecStart={sbindir}/inarp
+Restart=always
 
 [Install]
-WantedBy=multi-user.target
+WantedBy={SYSTEMD_DEFAULT_TARGET}

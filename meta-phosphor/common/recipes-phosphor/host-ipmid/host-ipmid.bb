@@ -3,31 +3,28 @@ DESCRIPTION = "Phosphor OpenBMC IPMI router and plugin libraries"
 HOMEPAGE = "http://github.com/openbmc/phosphor-host-ipmid"
 PR = "r1"
 
-RRECOMMENDS_${PN} += "virtual/obmc-phosphor-host-ipmi-hw"
+RRECOMMENDS_${PN} += "packagegroup-obmc-ipmid-providers-libs"
 
-RRECOMMENDS_${PN} += "${VIRTUAL-RUNTIME_obmc-phosphor-ipmi-parsers}"
-
-
+inherit autotools pkgconfig
 inherit obmc-phosphor-license
 inherit obmc-phosphor-sdbus-service
-inherit obmc-phosphor-c-daemon
 
 TARGET_CFLAGS   += "-fpic"
 
+DEPENDS += "phosphor-mapper"
+DEPENDS += "autoconf-archive-native"
+RDEPENDS_${PN}-dev += "phosphor-mapper-dev"
 RDEPENDS_${PN} += "clear-once"
-RDEPENDS_${PN} += "settings"
 RDEPENDS_${PN} += "network"
+RDEPENDS_${PN} += "libmapper"
+RRECOMMENDS_${PN} += "virtual-obmc-settings-mgmt"
 SRC_URI += "git://github.com/openbmc/phosphor-host-ipmid"
 
-SRCREV = "b7bcda57ee39616e8937194d281e2476e6ea8df2"
+SRCREV = "80f714beec97953e004dec330f3fc320d1c8bb02"
 
 S = "${WORKDIR}/git"
-INSTALL_NAME = "ipmid"
 
-do_install() {
-        install -m 0755 -d ${D}${libdir}/host-ipmid
-        install -m 0755 ${S}/*.so ${D}${libdir}/host-ipmid/
+FILES_${PN}_append = " ${libdir}/host-ipmid/lib*${SOLIBS}"
+FILES_${PN}-dev_append = " ${libdir}/host-ipmid/lib*${SOLIBSDEV} ${libdir}/host-ipmid/*.la"
 
-        install -m 0755 -d ${D}${includedir}/host-ipmid
-        install -m 0644 ${S}/ipmid-api.h ${D}${includedir}/host-ipmid/
-}
+DBUS_SERVICE_${PN} += "org.openbmc.HostServices.service"

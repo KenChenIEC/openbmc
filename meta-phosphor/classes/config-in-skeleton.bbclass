@@ -4,9 +4,16 @@
 inherit allarch
 inherit setuptools
 inherit pythonnative
+inherit skeleton-rev
+inherit obmc-phosphor-license
+
+HOMEPAGE = "http://github.com/openbmc/skeleton"
+
+PROVIDES += "virtual/obmc-inventory-data"
+RPROVIDES_${PN} += "virtual-obmc-inventory-data"
 
 DEPENDS += "python"
-SRC_URI += "git://github.com/openbmc/skeleton;subpath=configs"
+SRC_URI += "${SKELETON_URI};subpath=configs"
 S = "${WORKDIR}/configs"
 
 python() {
