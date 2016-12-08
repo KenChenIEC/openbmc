@@ -17,10 +17,11 @@ RDEPENDS_${PN}-dev += "phosphor-mapper-dev"
 RDEPENDS_${PN} += "clear-once"
 RDEPENDS_${PN} += "network"
 RDEPENDS_${PN} += "libmapper"
+RDEPENDS_${PN} += "phosphor-time-manager"
 RRECOMMENDS_${PN} += "virtual-obmc-settings-mgmt"
 SRC_URI += "git://github.com/openbmc/phosphor-host-ipmid"
 
-SRCREV = "80f714beec97953e004dec330f3fc320d1c8bb02"
+SRCREV = "3d0df91dc704fbcfa819ba42cccfa6a2f1616ff9"
 
 S = "${WORKDIR}/git"
 

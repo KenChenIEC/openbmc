@@ -5,15 +5,15 @@ PR = "r1"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=fa818a259cbed7ce8bc2a22d35a464fc"
 
-inherit pythonnative
 inherit autotools pkgconfig
+inherit obmc-phosphor-python-autotools
 inherit obmc-phosphor-dbus-service
 inherit obmc-phosphor-systemd
 
 DEPENDS += "systemd"
 DEPENDS += "autoconf-archive-native"
 
-DBUS_SERVICE_${PN} += "org.openbmc.ObjectMapper.service"
+DBUS_SERVICE_${PN} += "xyz.openbmc_project.ObjectMapper.service"
 SYSTEMD_SERVICE_${PN} = "mapper-wait@.service"
 RDEPENDS_libmapper += "libsystemd"
 RDEPENDS_${PN} += " \
@@ -23,14 +23,9 @@ RDEPENDS_${PN} += " \
         "
 SRC_URI += "git://github.com/openbmc/phosphor-objmgr"
 
-SRCREV = "7122244c83092499dc8d7836da0a63a08c734856"
+SRCREV = "f1d7c6e0512d04c520201f3b98d01a7e2a5c8fb5"
 
 S = "${WORKDIR}/git"
-
-export BUILD_SYS
-export HOST_SYS
-export STAGING_INCDIR
-export STAGING_LIBDIR
 
 python populate_packages_prepend () {
     mapperlibdir = d.getVar("libdir", True)
@@ -38,4 +33,3 @@ python populate_packages_prepend () {
 }
 PACKAGES_DYNAMIC += "^libmapper.*"
 FILES_${PN}_remove = "${libdir}/lib*.so.* ${libdir}/*"
-FILES_${PN} += "${PYTHON_SITEPACKAGES_DIR}"
