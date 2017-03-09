@@ -1,7 +1,8 @@
 def run_git(d, cmd):
         try:
                 oeroot = d.getVar('COREBASE', True)
-                return bb.process.run("git --git-dir %s/.git %s" %(oeroot, cmd))[0].strip('\n')
+                return bb.process.run("git --work-tree %s --git-dir %s/.git %s"
+                                      % (oeroot, oeroot, cmd))[0].strip('\n')
         except:
                 pass
 
@@ -20,4 +21,4 @@ python() {
 
 OS_RELEASE_FIELDS_append = " BUILD_ID"
 do_compile[nostamp] = "1"
-do_compile_remove[vardeps] = "BUILD_ID VERSION VERSION_ID"
+do_compile[vardepsexclude] = "BUILD_ID VERSION VERSION_ID NAME PRETTY_NAME"

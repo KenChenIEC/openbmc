@@ -1,0 +1,15 @@
+[Unit]
+Description=Trigger CPLD to give pgood
+Wants=vcs_workaround@%i.service
+After=vcs_workaround@%i.service
+Wants=obmc-host-start-pre@%i.target
+Before=obmc-host-start-pre@%i.target
+Conflicts=obmc-power-chassis-off@%i.target
+
+[Service]
+ExecStart={bindir}/cpld_trigger.sh
+Type=oneshot
+RemainAfterExit=yes
+
+[Install]
+WantedBy=obmc-power-chassis-on@%i.target

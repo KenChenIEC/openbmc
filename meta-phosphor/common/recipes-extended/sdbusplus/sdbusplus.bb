@@ -9,17 +9,33 @@ inherit autotools pkgconfig
 inherit obmc-phosphor-python-autotools
 
 DEPENDS += "autoconf-archive-native"
-RDEPENDS_${PN} += " \
+RDEPENDS_sdbus++ += " \
         python-inflection \
         python-mako \
         python-pyyaml \
         "
 
-SRC_URI += "git://github.com/openbmc/sdbusplus"
-SRCREV = "7904ed64341334649a5c613f7007a449d6899508"
+# sdbus++ has a handful of runtime dependencies on other python packages.
+# Bitbake doesn't do anything with RDEPENDS in native context because
+# native context doesn't have packages.
+#
+# While technically sdbus++ doesn't require its runtime dependencies to be
+# installed to build, work around the above native context behavior
+# by adding a build dependency so that clients don't have to DEPEND
+# on sdbus++ runtime dependencies manually.
 
-PACKAGECONFIG ??= "libsdbusplus"
+DEPENDS_append_class-native = " \
+        python-inflection-native \
+        python-mako-native \
+        python-pyyaml-native \
+        "
+
+SRC_URI += "git://github.com/openbmc/sdbusplus"
+SRCREV = "bee1a6a3b233495fc48265626ca3a7952a43363f"
+
+PACKAGECONFIG ??= "libsdbusplus transaction"
 PACKAGECONFIG[libsdbusplus] = "--enable-libsdbusplus,--disable-libsdbusplus,systemd,libsystemd"
+PACKAGECONFIG[transaction] = "--enable-transaction,--disable-transaction"
 
 S = "${WORKDIR}/git"
 
@@ -30,6 +46,5 @@ PYTHON_AUTOTOOLS_PACKAGE = "sdbus++"
 
 PACKAGECONFIG_remove_class-native = "libsdbusplus"
 PACKAGECONFIG_remove_class-nativesdk = "libsdbusplus"
-ALLOW_EMPTY_${PN} = "1"
 
 BBCLASSEXTEND += "native nativesdk"

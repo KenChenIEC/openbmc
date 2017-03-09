@@ -1,0 +1,9 @@
+[Unit]
+Description=Phosphor Hwmon Poller
+ConditionFileNotEmpty=/etc/default/obmc/hwmon/%I.conf
+StopWhenUnneeded=true
+
+[Service]
+Restart=always
+ExecStart={sbindir}/phosphor-hwmon-readd -o %f
+EnvironmentFile=/etc/default/obmc/hwmon/%I.conf
