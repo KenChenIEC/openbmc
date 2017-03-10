@@ -7,13 +7,14 @@ inherit pythonnative
 inherit skeleton-rev
 inherit obmc-phosphor-license
 
-HOMEPAGE = "http://github.com/openbmc/skeleton"
+HOMEPAGE = "http://github.com/KenChenIEC/skeleton"
 
 PROVIDES += "virtual/obmc-inventory-data"
 RPROVIDES_${PN} += "virtual-obmc-inventory-data"
 
+SKELETON_BRANCH = "master_lanyang_20170309"
 DEPENDS += "python"
-SRC_URI += "${SKELETON_URI};subpath=configs"
+SRC_URI += "${SKELETON_URI};subpath=configs;branch=${SKELETON_BRANCH}"
 S = "${WORKDIR}/configs"
 
 python() {
