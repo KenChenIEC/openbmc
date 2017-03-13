@@ -1,3 +1,3 @@
-SRCREV ?= "be69cafbf649f36b154fb524b387c4d4c37443de"
-SKELETON_BRANCH = "master_lanyang_20170309"
+SRCREV ?= "c42517e07c7b8c39d9379455e936a8d098bf0f02"
+SKELETON_BRANCH = "dev-lanyang"
 SKELETON_URI ?= "git://github.com/KenChenIEC/skeleton;branch=${SKELETON_BRANCH}"

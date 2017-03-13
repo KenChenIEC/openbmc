@@ -12,7 +12,7 @@ HOMEPAGE = "http://github.com/KenChenIEC/skeleton"
 PROVIDES += "virtual/obmc-inventory-data"
 RPROVIDES_${PN} += "virtual-obmc-inventory-data"
 
-SKELETON_BRANCH = "master_lanyang_20170309"
+SKELETON_BRANCH = "dev-lanyang"
 DEPENDS += "python"
 SRC_URI += "${SKELETON_URI};subpath=configs;branch=${SKELETON_BRANCH}"
 S = "${WORKDIR}/configs"

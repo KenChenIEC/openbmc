@@ -1,6 +1,6 @@
-KBRANCH ?= "dev-4.7_lanyang_20170309"
+KBRANCH ?= "dev-4.7-lanyang"
 LINUX_VERSION ?= "4.7"
 
-SRCREV="4f62640fa6e71d8effda5449ddf554136f2b780d"
+SRCREV="694dc88d812b0c9e6dba364d178969e336fdd432"
 
 require linux-obmc.inc
